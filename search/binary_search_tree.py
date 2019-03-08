@@ -8,7 +8,26 @@ class BinarySearchTree:
     pass    
 
   def breadth_first_for_each(self, cb):
-    pass
+    """ 
+    * `breadth_first_for_each(cb)` receives a callback function as a parameter. 
+    It should then execute the anonymous function on each node in the tree 
+    in [breadth-first](https://en.wikipedia.org/wiki/Breadth-first_search) order. 
+    Your task is to implement the logic to traverse the tree in left-to-right breadth-first fashion.
+   
+    * Remember that the anonymous function is supplied by the caller of the method. 
+    All you have to do is ensure that the anonymous function is being called on each 
+    tree node in the desired order.
+   
+     _HINT_: In order to achieve breadth-first order, you'll probably want to utilize a Queue data structure.
+
+    * Run `python test_breadth_first_search.py` to test your breadth-first search implementation.
+    """
+    # To keep track of numbers
+    Queue = []
+
+    # If I input [3, 8, 4, 9, ]
+
+
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
