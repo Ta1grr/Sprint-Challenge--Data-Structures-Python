@@ -30,8 +30,10 @@ class BinarySearchTree:
     # If I input [5, 3, 10, 4, 9, 11] with 5 to be the starting value
     #
     #            5[0]
-    #      3[1]       10[2]
-    #   4[3]       9[4]   11[5]
+    #           /   \
+    #        3[1]   10[2]
+    #       /       /   \
+    #    4[3]    9[4]   11[5]
     #                         
     #
     # Step 1: [5] , []
@@ -47,31 +49,61 @@ class BinarySearchTree:
     # Optional I can use a while loop and just iterate until value equal cb
 
     # Step 1: append the first value into the queue [5], []
-    if self.value is not None:
+    if self.value is None or not Queue:
+        return
+    else:
         Queue.append(current)
     # Step 2: Compare the first index to what we're searching for, it it is true, return the value, if it is
     #         false then we'll add in both child nodes. i + 1 left, i + 2 right for arrays, but we can just
     #         check self.left and self.right inside classes
         if current == cb:
-            return Queue[0]
-        else:
+            return Queue[0]            
     # Step 3: If it doesn't match, remove the current node from Queue [], [5]            
-            Queue.remove(current)
+        Queue.remove(current)
     # Step 4: append the left child [3], [5]
-            Queue.append(self.left)
+        Queue.append(self.left)
     # Step 5: append the right child [3, 10], [5]
-            Queue.append(self.right)
+        Queue.append(self.right)
     # Step 6: Check left side first and repeat from step 2 down to 5 until we find the value or return None
-            if self.left == Queue[0]:
-                self.current = self.left
-                # Remove duplicates from Queue
-                Queue.remove(self.left)
-                return self.breadth_first_for_each(cb)
+        if self.left == Queue[0]:
+            self.current = self.left
+            # Remove duplicates from Queue
+            Queue.remove(self.left)
+            return self.breadth_first_for_each(cb)
                 
-            elif self.right == Queue[0]:
-                self.current = self.right
-                Queue.remove(self.right)
-                return self.breadth_first_for_each(cb)
+        elif self.right == Queue[0]:
+            self.current = self.right
+            Queue.remove(self.right)
+            return self.breadth_first_for_each(cb)
+
+
+    # # Step 1: append the first value into the queue [5], []
+    # if self.value is not None:
+
+    #     else:
+    #         Queue.append(current)
+    # # Step 2: Compare the first index to what we're searching for, it it is true, return the value, if it is
+    # #         false then we'll add in both child nodes. i + 1 left, i + 2 right for arrays, but we can just
+    # #         check self.left and self.right inside classes
+    #         if current == cb:
+    #             return Queue[0]            
+    # # Step 3: If it doesn't match, remove the current node from Queue [], [5]            
+    #         Queue.remove(current)
+    # # Step 4: append the left child [3], [5]
+    #         Queue.append(self.left)
+    # # Step 5: append the right child [3, 10], [5]
+    #         Queue.append(self.right)
+    # # Step 6: Check left side first and repeat from step 2 down to 5 until we find the value or return None
+    #         if self.left == Queue[0]:
+    #             self.current = self.left
+    #             # Remove duplicates from Queue
+    #             Queue.remove(self.left)
+    #             return self.breadth_first_for_each(cb)
+                
+    #         elif self.right == Queue[0]:
+    #             self.current = self.right
+    #             Queue.remove(self.right)
+    #             return self.breadth_first_for_each(cb)
 
 
   def insert(self, value):
