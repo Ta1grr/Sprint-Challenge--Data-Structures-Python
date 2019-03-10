@@ -5,19 +5,19 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+    pass
 
   def breadth_first_for_each(self, cb):
-    """ 
-    * `breadth_first_for_each(cb)` receives a callback function as a parameter. 
-    It should then execute the anonymous function on each node in the tree 
-    in [breadth-first](https://en.wikipedia.org/wiki/Breadth-first_search) order. 
+    """
+    * `breadth_first_for_each(cb)` receives a callback function as a parameter.
+    It should then execute the anonymous function on each node in the tree
+    in [breadth-first](https://en.wikipedia.org/wiki/Breadth-first_search) order.
     Your task is to implement the logic to traverse the tree in left-to-right breadth-first fashion.
-   
-    * Remember that the anonymous function is supplied by the caller of the method. 
-    All you have to do is ensure that the anonymous function is being called on each 
+
+    * Remember that the anonymous function is supplied by the caller of the method.
+    All you have to do is ensure that the anonymous function is being called on each
     tree node in the desired order.
-   
+
      _HINT_: In order to achieve breadth-first order, you'll probably want to utilize a Queue data structure.
 
     * Run `python test_breadth_first_search.py` to test your breadth-first search implementation.
@@ -28,7 +28,7 @@ class BinarySearchTree:
     #            5[0]
     #      3[1]       10[2]
     #   4[3]       9[4]   11[5]
-    #                         
+    #
     #
     # Step 1: [5] , []
     # Step 2: [3, 10] , [5]
@@ -53,7 +53,7 @@ class BinarySearchTree:
 
     # Append the first value into the queue [5], []
     queue.append(current.value)
-    
+
     # While len is greater than 0
     while len(queue) > 0:
         # Compare the instance of BinarySearchTree class value attribute to the first index
@@ -97,8 +97,8 @@ class BinarySearchTree:
     # #         false then we'll add in both child nodes. i + 1 left, i + 2 right for arrays, but we can just
     # #         check self.left and self.right inside classes
     #     if Queue[0] == cb(self.value):
-    #         return Queue[0]            
-    # # Step 3: If it doesn't match, remove the current node from Queue [], [5]            
+    #         return Queue[0]
+    # # Step 3: If it doesn't match, remove the current node from Queue [], [5]
     #     Queue.remove(current)
     # # Step 4: append the left child [3], [5]
     #     Queue.append(self.left)
@@ -110,7 +110,7 @@ class BinarySearchTree:
     #         # Remove duplicates from Queue
     #         Queue.remove(self.left)
     #         return self.breadth_first_for_each(cb)
-                
+
     #     elif self.right == Bread[0] and not None:
     #         self.current = self.right
     #         Queue.remove(self.right)
